@@ -13,7 +13,7 @@ public class CSVLoader
 
     public void LoadCSV()
     {
-        csvFile = Resources.Load<TextAsset>("localisation");
+        csvFile = Resources.Load<TextAsset>("localization");
     }
 
     public Dictionary<string, string> BuildDictionaryById(string languageId)
@@ -42,17 +42,20 @@ public class CSVLoader
         }
 
         Regex CSVParser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
+
         for (int x = 1; x < lines.Length; x++)
         {
             string line = lines[x];
             string[] fields = CSVParser.Split(line);
 
+            //Trim the field inital or final " "
             for (int i = 0; i < fields.Length; i++)
             {
                 fields[i] = fields[i].TrimStart(' ', surround);
                 fields[i] = fields[i].TrimEnd('\r', surround);
             }
 
+            //Add the values to the dictionary
             if(fields.Length > attributeIndex)
             {
                 var key = fields[0];
