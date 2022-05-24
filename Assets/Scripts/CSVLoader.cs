@@ -16,6 +16,11 @@ public class CSVLoader
         csvFile = Resources.Load<TextAsset>("localization");
     }
 
+    /// <summary>
+    /// Given a .csv File creates a dictionary if the key is found in the header of the file. Returns null otherwise
+    /// </summary>
+    /// <param name="languageId">Key required to create the dictionary</param>
+    /// <returns></returns>
     public Dictionary<string, string> BuildDictionaryById(string languageId)
     {
         Dictionary<string, string> dict = new Dictionary<string, string>();
