@@ -1,0 +1,3 @@
+Instructions:
+
+- Make sure to save the .csv file in UTF-8 format (that way additional characters will be shown)
